@@ -3,28 +3,27 @@ import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import BoardGameList from './components/BoardGameList.vue'
 
-const BGGusers = ["SolarDrew", "Cadair"]
+const player = ref(null)
+const BGGusers = ref([])
+
+function addPlayer (player) {
+  var players = BGGusers.value
+  players.push(player)
+  BGGusers.value = players
+  player = ''
+}
 
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
   </header>
 
   <main>
-    <!-- <button @click="getGames">Get games</button>
-    <BoardGameList :games="data"></BoardGameList> -->
-    <div>
-      <Suspense>
-        <BoardGameList :BGGusers="BGGusers"/>
-      </Suspense>
-      <!--<BoardGameList :BGGuser="BGGuser2"/>-->
-    </div>
+    <p>Players: <template v-for="name of BGGusers"> {{ name }} </template></p>
+    <input v-model="player" placeholder="Choose a player!" @keyup.enter="addPlayer(player)"/>
+    <button @click="addPlayer(player)">Add Player</button>
+    <Suspense><BoardGameList :BGGusers="BGGusers"/></Suspense>
   </main>
 </template>
 

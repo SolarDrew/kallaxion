@@ -1,5 +1,5 @@
 <script async setup>
-import { ref } from 'vue'
+import { watch } from 'vue'
 import BoardGame from './BoardGame.vue'
 import PlayerPic from './PlayerPic.vue'
 const { BGGusers } = defineProps({
@@ -11,21 +11,23 @@ async function bggGet(url) {
   return res.text()
 }
 
+watch(() => BGGusers, (newValue, oldValue) => {
+  console.log(BGGusers)
+})
+
 var gameIds = []
 for (let i = 0; i < BGGusers.length; i++) {
-    var BGG_COLLECTION_URL = 'https://boardgamegeek.com/xmlapi2/collection?username=' + BGGusers[i] + "&own=1&excludesubtype=boardgameexpansion"
-    var res = await bggGet(BGG_COLLECTION_URL)
-    var userGameIds = Array.from(
-      new window.DOMParser().parseFromString(res, "text/xml").getElementsByTagName('item'))
-      .map(game => game.attributes['objectid'].textContent)
-    gameIds = gameIds.concat(userGameIds)
+  var BGG_COLLECTION_URL = 'https://boardgamegeek.com/xmlapi2/collection?username=' + BGGusers[i] + "&own=1&excludesubtype=boardgameexpansion"
+  var res = await bggGet(BGG_COLLECTION_URL)
+  var userGameIds = Array.from(
+    new window.DOMParser().parseFromString(res, "text/xml").getElementsByTagName('item'))
+    .map(game => game.attributes['objectid'].textContent)
+  gameIds = gameIds.concat(userGameIds)
 }
 gameIds = await [...new Set(gameIds)]
 
 var gameInfo = []
-//await gameIds.map(
 for (let i = 0; i < gameIds.length; i++) {
-//  async function(gameId) {
     var GAME_INFO_URL = 'https://boardgamegeek.com/xmlapi2/thing?id=' + gameIds[i]
     res = await bggGet(GAME_INFO_URL)
     var info = new window.DOMParser().parseFromString(res, "text/xml")
@@ -36,8 +38,6 @@ for (let i = 0; i < gameIds.length; i++) {
     }
     gameInfo.push(game)
 }
-//)
-
 </script>
 
 <template>
