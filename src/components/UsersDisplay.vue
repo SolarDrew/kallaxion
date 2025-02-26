@@ -1,6 +1,5 @@
 <script setup>
   import MeepleIcon from './MeepleIcon.vue'
-  import PlainMeepleIcon from './PlainMeepleIcon.vue'
   const props = defineProps({
     users: Array,
     colours: Array,
