@@ -9,7 +9,7 @@
   const BGGusers = ref([])
   const gameInfo = ref([])
 
-  var playerColours = [... Array(10).keys()].map(i => rainbowStop(i/10, 1, 0.5))
+  var playerColours = [... Array(8).keys()].map(i => rainbowStop(i/8, 1, 0.5))
   playerColours.sort(() => Math.random() - 0.5);
   console.log(playerColours)
 
