@@ -14,9 +14,14 @@
   <h3 class="text">
     {{ game.name }}
   </h3>
-  <p class="text">
-    {{ game.minplayers }} - {{ game.maxplayers }} players
-  </p>
+  <div class="playersrow">
+    <div v-for="player, item of players" class="meepleicon">
+      <MeepleIcon :fill="colours[item]"/>
+    </div>
+    <div v-for="item of Math.min(game.maxplayers, 8)-players.length" class="meepleicon">
+      <MeepleIcon :fill="'black'"/>
+    </div>
+  </div>
 </template>
 
 <style scoped>
@@ -28,14 +33,19 @@
     text-align: center;
   }
 
-  .text {
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  .playersrow {
     display: flex;
     justify-content: center;
   }
 
-  img {
-    display: block;
-    margin: auto;
+  .meepleicon {
+    display: flex;
+    flex-basis: 30px;
   }
 </style>
 
