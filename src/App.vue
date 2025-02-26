@@ -22,7 +22,7 @@
 
   <main>
     <UsersDisplay :users="BGGusers" :colours="playerColours"/>
-    <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo"/>
+    <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo" :colours="playerColours"/>
   </main>
 </template>
 
