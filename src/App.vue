@@ -17,11 +17,11 @@
 
 <template>
   <header>
-    <Suspense><UsersInput v-model:games="gameInfo" v-model:users="BGGusers"/></Suspense>
+    <UsersInput v-model:games="gameInfo" v-model:users="BGGusers"/>
   </header>
 
   <main>
-    <UsersDisplay :users="BGGusers" :colours="playerColours"/>
+    <UsersDisplay v-model:users="BGGusers" :colours="playerColours"/>
     <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo" :colours="playerColours"/>
   </main>
 </template>

@@ -1,4 +1,4 @@
-<script async setup>
+<script setup>
   import { watch } from 'vue'
   import BoardGame from './BoardGame.vue'
   import PlayerPic from './PlayerPic.vue'
@@ -13,9 +13,9 @@
 <template>
   <row container :gutter="12">
     <template v-for="game of gameInfo">
-      <column :xs="12" :md="4" :lg="3" 
+      <column :xs="12" :md="4" :lg="3"
         v-if="game.minplayers <= BGGusers.length && game.maxplayers >= BGGusers.length">
-        <BoardGame :game="game" :players="BGGusers", :colours="colours"/>
+        <BoardGame :game="game" :players="BGGusers" :colours="colours"/>
       </column>
     </template>
   </row>
