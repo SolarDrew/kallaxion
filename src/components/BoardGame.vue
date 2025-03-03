@@ -23,6 +23,10 @@
       <MeepleIcon :fill="'black'"/>
     </div>
   </div>
+  <div class="hovertext">
+    <p>{{ players.length }} of {{ game.minplayers }} - {{ game.maxplayers }} players</p>
+    <p>Owned by: <p v-for="player of game.owners">{{ player }}</p></p>
+  </div>
 </template>
 
 <style scoped>
@@ -42,6 +46,19 @@
   .playersrow {
     display: flex;
     justify-content: center;
+  }
+
+  .hovertext {
+      display: none;
+      position: absolute;
+      text-align: center;
+      z-index: 1;
+      background-color: darkslategrey;
+      color: ghostwhite;
+  }
+
+  .playersrow:hover + .hovertext {
+      display: block;
   }
 
   .meepleicon {
