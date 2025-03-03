@@ -5,7 +5,7 @@
   const props = defineProps({
     game: Object,
     players: Array,
-    colours: Array,
+    colours: Array
   })
 </script>
 
