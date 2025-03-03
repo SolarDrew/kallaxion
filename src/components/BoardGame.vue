@@ -16,7 +16,8 @@
   </h3>
   <div class="playersrow">
     <div v-for="player, item of players" class="meepleicon">
-      <MeepleIcon :fill="colours[item]"/>
+      <MeepleIcon :fill="colours[item]" v-if="game.owners.includes(player.name)"/>
+      <MeepleIcon :fill="'white'" v-else/>
     </div>
     <div v-for="item of Math.min(game.maxplayers, 8)-players.length" class="meepleicon">
       <MeepleIcon :fill="'black'"/>
