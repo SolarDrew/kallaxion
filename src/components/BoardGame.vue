@@ -29,7 +29,7 @@ const props = defineProps({
   </div>
 </div>
 <div class="hovertext">
-  <p>{{ players.length }} of {{ game.minplayers }} - {{ game.maxplayers }} players</p>
+  <p>{{ players.length }} of {{ game.minplayers }}-{{ game.maxplayers }} players</p>
   <p>Owned by: <p v-for="player of game.owners">{{ player }}</p></p>
 </div>
 </template>

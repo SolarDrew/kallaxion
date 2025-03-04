@@ -26,7 +26,8 @@
   <h3>Here to help you choose a game</h3>
 
   <p>To get started, type your BoardGameGeek username into the box above to fetch your collection and see which of your games you can play solo.</p>
-  <p>Add more users and the games available to you will adjust based on that player count.</p>
+  <p>Add a second user to see all the games you both own that are for 2 players or more.</p>
+  <p>Keep adding users and the games available to you will adjust based on that player count.</p>
 </div>
 </template>
 
