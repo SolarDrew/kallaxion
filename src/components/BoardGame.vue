@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import MeepleIcon from './MeepleIcon.vue'
 import MeepleGroupIcon from './MeepleGroupIcon.vue'
 
-  const props = defineProps({
 const props = defineProps({
     game: Object,
     players: Array,
@@ -12,10 +11,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <img :src="game.image"/>
-  <h3 class="text">
-    {{ game.name }}
-  </h3>
+<img :src="game.image"/>
+<h3 class="text" title="Click to see this game on BoardGameGeek">
+  <a :href="game.url">{{ game.name }}</a>
+</h3>
 <div class="playersrow">
   <div v-for="player, item of players" class="meepleicon">
     <MeepleIcon :fill="colours[item]" v-if="game.owners.includes(player.name)"/>

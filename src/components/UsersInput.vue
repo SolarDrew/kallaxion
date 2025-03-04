@@ -23,6 +23,7 @@ function getGameFromId(id, player) {
                 image: info.getElementsByTagName("thumbnail")[0].textContent,
                 id: id,
                 owners: [player.name],
+                url: "https://boardgamegeek.com/boardgame/" + id,
             }
             return game
         })
