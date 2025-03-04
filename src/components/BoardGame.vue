@@ -1,12 +1,14 @@
 <script setup>
-  import { ref } from 'vue'
-  import MeepleIcon from './MeepleIcon.vue'
+import { ref } from 'vue'
+import MeepleIcon from './MeepleIcon.vue'
+import MeepleGroupIcon from './MeepleGroupIcon.vue'
 
   const props = defineProps({
+const props = defineProps({
     game: Object,
     players: Array,
     colours: Array
-  })
+})
 </script>
 
 <template>
@@ -14,19 +16,23 @@
   <h3 class="text">
     {{ game.name }}
   </h3>
-  <div class="playersrow">
-    <div v-for="player, item of players" class="meepleicon">
-      <MeepleIcon :fill="colours[item]" v-if="game.owners.includes(player.name)"/>
-      <MeepleIcon :fill="'white'" v-else/>
-    </div>
-    <div v-for="item of Math.min(game.maxplayers, 8)-players.length" class="meepleicon">
-      <MeepleIcon :fill="'black'"/>
-    </div>
+<div class="playersrow">
+  <div v-for="player, item of players" class="meepleicon">
+    <MeepleIcon :fill="colours[item]" v-if="game.owners.includes(player.name)"/>
+    <MeepleIcon :fill="'white'" v-else/>
   </div>
-  <div class="hovertext">
-    <p>{{ players.length }} of {{ game.minplayers }} - {{ game.maxplayers }} players</p>
-    <p>Owned by: <p v-for="player of game.owners">{{ player }}</p></p>
+  <div v-for="item of Math.min(game.maxplayers, 7)-players.length" class="meepleicon">
+    <MeepleIcon :fill="'black'"/>
   </div>
+  <div class="meepleicon">
+    <MeepleGroupIcon v-if="game.maxplayers > 7"/>
+    <MeepleIcon :fill="'black'" v-else-if="game.maxplayers == 8"/>
+  </div>
+</div>
+<div class="hovertext">
+  <p>{{ players.length }} of {{ game.minplayers }} - {{ game.maxplayers }} players</p>
+  <p>Owned by: <p v-for="player of game.owners">{{ player }}</p></p>
+</div>
 </template>
 
 <style scoped>
