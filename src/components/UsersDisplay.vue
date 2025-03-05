@@ -3,9 +3,30 @@ import MeepleIcon from './MeepleIcon.vue'
 import HourglassIcon from './HourglassIcon.vue'
 import SkullIcon from './SkullIcon.vue'
 const users = defineModel('users')
+const gameInfo = defineModel('games')
 const props = defineProps({
     colours: Array,
-  })
+})
+
+function removePlayer(playerObj) {
+    for (var game of playerObj.games) {
+        if (game.owners.includes(playerObj.name)) {
+            if (game.owners.length == 1) {
+                var index = gameInfo.value.indexOf(game)
+                if (index > -1) {
+                    gameInfo.value.splice(index, 1)
+                }
+            }
+            else {
+                game.owners.splice(game.owners.indexOf(playerObj.name), 1)
+            }
+        }
+    }
+    index = users.value.indexOf(playerObj);
+    if (index > -1) {
+        users.value.splice(index, 1);
+    }
+}
 </script>
 
 <template>

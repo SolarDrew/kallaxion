@@ -20,7 +20,7 @@
   </header>
 
   <main>
-    <UsersDisplay v-model:users="BGGusers" :colours="playerColours"/>
+    <UsersDisplay v-model:users="BGGusers" :colours="playerColours" v-model:games="gameInfo"/>
     <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo" :colours="playerColours"/>
   </main>
 </template>

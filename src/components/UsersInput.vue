@@ -35,7 +35,6 @@ function getGameFromId(id, player) {
             var gameIds = gameInfo.value.map(game => game.id)
             if (gameIds.includes(game.id)) {
                 const idx = gameIds.indexOf(game.id)
-                console.log(idx)
                 gameInfo.value[idx].owners.push(player.name)
             }
             else {
