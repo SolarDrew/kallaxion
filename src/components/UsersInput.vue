@@ -52,12 +52,14 @@ function getPlayerCollection(player) {
               .map(game => game.attributes['objectid'].textContent)
               .map(id => getGameFromId(id, player))
              )
+        .then(games => player.loadingCollection.value = false)
 }
 
 function addPlayer (playerName) {
     var newPlayer = {
         name: playerName,
         games: ref([]),
+        loadingCollection: ref(true),
     }
     getPlayerCollection(newPlayer)
     BGGusers.value.push(newPlayer)
