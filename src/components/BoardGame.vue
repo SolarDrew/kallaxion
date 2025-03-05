@@ -23,9 +23,11 @@ const props = defineProps({
   <div v-for="item of Math.min(game.maxplayers, 7)-players.length" class="meepleicon">
     <MeepleIcon :fill="'black'"/>
   </div>
-  <div class="meepleicon">
-    <MeepleGroupIcon v-if="game.maxplayers > 7"/>
-    <MeepleIcon :fill="'black'" v-else-if="game.maxplayers == 8"/>
+  <div class="meepleicon" v-if="game.maxplayers > 7">
+    <MeepleGroupIcon/>
+  </div>
+  <div class="meepleicon" v-else-if="game.maxplayers == 8">
+    <MeepleIcon :fill="'black'"/>
   </div>
 </div>
 <div class="hovertext">
