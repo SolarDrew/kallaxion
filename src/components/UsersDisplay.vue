@@ -2,6 +2,7 @@
 import MeepleIcon from './MeepleIcon.vue'
 import HourglassIcon from './HourglassIcon.vue'
 import SkullIcon from './SkullIcon.vue'
+import InfoIcon from './InfoIcon.vue'
 const users = defineModel('users')
 const gameInfo = defineModel('games')
 const props = defineProps({
@@ -33,8 +34,14 @@ function removePlayer(playerObj) {
 <div class="userrow">
   <div v-for="player, idx of users" class=user>
     <MeepleIcon :fill="colours[idx]" class="meeple"/>
-    <HourglassIcon v-if="player.loadingCollection" class="icon"/>
     <SkullIcon class="skullicon" @click="removePlayer(player)"/>
+    <HourglassIcon v-if="player.loadingCollection" class="icon"/>
+    <div v-if="player.loadingFailed">
+      <InfoIcon class="infoicon"/>
+      <p class="hovertext">
+        Failed to load collection from BoardGameGeek. Remove the player or refresh the page and try again.
+      </p>
+    </div>
     <p>{{ player.name }}</p>
   </div>
 </div>
@@ -77,7 +84,28 @@ p {
     display: none;
 }
 
+.infoicon {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+}
+
 .meeple:hover + .skullicon {
+    display: block;
+}
+
+.hovertext {
+    display: none;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    background-color: darkslategrey;
+    color: ghostwhite;
+}
+
+.infoicon:hover + .hovertext {
     display: block;
 }
 </style>
