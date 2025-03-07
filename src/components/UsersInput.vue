@@ -5,10 +5,15 @@ const player = ref(null)
 const BGGusers = defineModel('users')
 const gameInfo = defineModel('games')
 
-function bggGet(url) {
+function bggGet(url, n_tries=1) {
     var res = fetch(url)
         .then(res => res.text())
         .then(res => new window.DOMParser().parseFromString(res, "text/xml"))
+        .catch(error => {
+            if (n_tries === 5) throw error
+            // Timeout on empty function because setTimeout doesn't return the function result
+            setTimeout(() => {bggGet(url, n_tries + 1)}, 1000 * Math.pow(2, n_tries))
+        })
     return res
 }
 
