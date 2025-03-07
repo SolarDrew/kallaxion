@@ -5,6 +5,7 @@
   import BoardGameList from './components/BoardGameList.vue'
   import UsersInput from './components/UsersInput.vue'
   import UsersDisplay from './components/UsersDisplay.vue'
+  import GitHubIcon from './components/GitHubIcon.vue'
 
   const BGGusers = ref([])
   const gameInfo = ref([])
@@ -23,6 +24,8 @@
     <UsersDisplay v-model:users="BGGusers" :colours="playerColours" v-model:games="gameInfo"/>
     <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo" :colours="playerColours"/>
   </main>
+
+  <v-footer><a href="https://github.com/SolarDrew/ludos"><GitHubIcon/></a></v-footer>
 </template>
 
 <style scoped>
@@ -45,5 +48,10 @@
       place-items: flex-start;
       flex-wrap: wrap;
     }
+  }
+
+  v-footer {
+      display: flex;
+      justify-content: center;
   }
 </style>
