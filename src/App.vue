@@ -5,7 +5,6 @@
   import BoardGameList from './components/BoardGameList.vue'
   import UsersInput from './components/UsersInput.vue'
   import UsersDisplay from './components/UsersDisplay.vue'
-  import GitHubIcon from './components/GitHubIcon.vue'
 
   const BGGusers = ref([])
   const gameInfo = ref([])
