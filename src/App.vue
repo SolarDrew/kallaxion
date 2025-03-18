@@ -25,7 +25,11 @@
     <BoardGameList :BGGusers="BGGusers" :gameInfo="gameInfo" :colours="playerColours"/>
   </main>
 
-  <v-footer><a href="https://github.com/SolarDrew/ludos"><GitHubIcon/></a></v-footer>
+  <v-footer>
+    <a href="https://github.com/SolarDrew/kallaxion.github.io"><img src="./assets/github-mark-white.png" width=40px/></a>
+    <p>Copyright Drew Leonard 2025.</p>
+    <p>Icons from <a href="https://game-icons.net">Game-icons.net</a> used under <a href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0</a> license.</p>
+  </v-footer>
 </template>
 
 <style scoped>
@@ -52,6 +56,7 @@
 
   v-footer {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      flex-direction: column;
   }
 </style>
