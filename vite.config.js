@@ -16,6 +16,8 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: ['bgsocial'],
+      allowedHosts: ['bgsocial',
+                     'bgsocial.solardrew.com',
+                     'kallaxion.com'],
   }
 })
