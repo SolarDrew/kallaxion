@@ -22,7 +22,7 @@
   </row>
 </div>
 <div v-else class="text">
-  <h1>Welcome to Ludos!</h1>
+  <h1>Welcome to Kallaxion!</h1>
   <h3>Here to help you choose a game</h3>
 
   <p>To get started, type your BoardGameGeek username into the box above to fetch your collection and see which of your games you can play solo.</p>
