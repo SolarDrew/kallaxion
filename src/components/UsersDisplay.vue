@@ -65,6 +65,7 @@ function removePlayer(playerObj) {
 
 p {
     align-self: center;
+    word-break: break-all
 }
 
 .icon {
