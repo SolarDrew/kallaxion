@@ -18,6 +18,11 @@
          'floating-chat.donateButton.text-color': '#fff'
      });
     </script>
+    <script>
+     // Only load on production environment.
+     if (window.location.host !== 'https://kallaxion.solardrew.com')
+         window.goatcounter = {no_onload: true}
+    </script>
     <script data-goatcounter="https://kallaxion.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
