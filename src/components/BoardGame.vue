@@ -11,7 +11,7 @@ const props = defineProps({
 </script>
 
 <template>
-<img :src="game.image"/>
+<a :href="game.url"><img :src="game.image"/></a>
 <h3 class="text" title="Click to see this game on BoardGameGeek">
   <a :href="game.url">{{ game.name }}</a>
 </h3>
