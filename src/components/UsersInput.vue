@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const player = ref(null)
+const newPlayerName = ref(null)
 const BGGusers = defineModel('users')
 const gameInfo = defineModel('games')
 
@@ -72,13 +72,14 @@ function addPlayer (playerName) {
     }
     getPlayerCollection(newPlayer)
     BGGusers.value.push(newPlayer)
+    this.newPlayerName = ""
 }
 </script>
 
 <template>
   <div class="input">
-    <input v-model="player" placeholder="Choose a player!" @keyup.enter="addPlayer(player)"/>
-    <button @click="addPlayer(player)">Add Player</button>
+    <input v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer(newPlayerName)"/>
+    <button @click="addPlayer(newPlayerName)">Add Player</button>
   </div>
 </template>
 
