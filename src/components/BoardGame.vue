@@ -11,9 +11,9 @@ const props = defineProps({
 </script>
 
 <template>
-<a :href="game.url"><img :src="game.image"/></a>
+<a :href="game.url" target="_blank"><img :src="game.image"/></a>
 <h3 class="text" title="Click to see this game on BoardGameGeek">
-  <a :href="game.url">{{ game.name }}</a>
+  <a :href="game.url" target="_blank">{{ game.name }}</a>
 </h3>
 <div class="playersrow">
   <div v-for="player, item of players" class="meepleicon">
