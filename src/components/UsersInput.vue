@@ -63,23 +63,23 @@ function getPlayerCollection(player) {
         .then(games => player.loadingCollection.value = false)
 }
 
-function addPlayer (playerName) {
+function addPlayer () {
     var newPlayer = {
-        name: playerName,
+        name: newPlayerName.value,
         games: ref([]),
         loadingCollection: ref(true),
         loadingFailed: ref(false),
     }
     getPlayerCollection(newPlayer)
     BGGusers.value.push(newPlayer)
-    this.newPlayerName = ""
+    newPlayerName.value = ""
 }
 </script>
 
 <template>
   <div class="input">
-    <input v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer(newPlayerName)"/>
-    <button @click="addPlayer(newPlayerName)">Add Player</button>
+    <input v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer"/>
+    <button @click="addPlayer">Add Player</button>
   </div>
 </template>
 
