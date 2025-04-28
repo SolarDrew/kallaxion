@@ -1,7 +1,6 @@
 <script setup>
   import { ref } from 'vue'
   import { rainbowStop } from './rainbow.js'
-  import HelloWorld from './components/HelloWorld.vue'
   import BoardGameList from './components/BoardGameList.vue'
   import UsersInput from './components/UsersInput.vue'
   import UsersDisplay from './components/UsersDisplay.vue'
