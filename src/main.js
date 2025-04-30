@@ -5,6 +5,7 @@ import { createVuetify } from 'vuetify';
 import { Row, Column, Hidden } from 'vue-grid-responsive';
 
 import PrimeVue from 'primevue/config';
+import Button from "primevue/button";
 
 import App from './App.vue';
 
@@ -16,5 +17,7 @@ app.component('row', Row);
 app.component('column', Column);
 app.component('hidden', Hidden);
 app.use(PrimeVue)
+
+app.component('Button', Button);
 
 app.mount('#app')

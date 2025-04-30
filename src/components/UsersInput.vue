@@ -79,7 +79,7 @@ function addPlayer () {
 <template>
   <div class="input">
     <input v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer"/>
-    <button @click="addPlayer">Add Player</button>
+    <Button @click="addPlayer" label="Add Player"/>
   </div>
 </template>
 
@@ -89,5 +89,9 @@ function addPlayer () {
     flex-direction: column;
     align-items: stretch;
     padding-top: 50px
+  }
+
+  Button {
+      padding: 10px;
   }
 </style>
