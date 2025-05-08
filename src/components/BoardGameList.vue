@@ -1,4 +1,5 @@
 <script setup>
+  import { ref } from 'vue'
   import BoardGame from './BoardGame.vue'
   const props = defineProps({
     BGGusers: Array,
@@ -6,18 +7,40 @@
     colours: Array,
   })
 
+  const sortKey = ref();
+  const sortOrder = ref();
+  const sortField = ref();
+  const sortOptions = ref([
+    {label: 'Name', value: 'name'},
+    {label: 'Max players', value: 'maxplayers'},
+  ]);
+
+  const onSortChange = (event) => {
+    const value = event.value.value;
+    const sortValue = event.value;
+
+    sortOrder.value = 1;
+    sortField.value = value;
+    sortKey.value = sortValue;
+  };
 </script>
 
 <template>
 <div v-if="BGGusers.length > 0">
-  <row container :gutter="12">
-    <template v-for="game of gameInfo">
-      <column :xs="12" :md="4" :lg="3"
-        v-if="game.minplayers <= BGGusers.length && game.maxplayers >= BGGusers.length">
-        <BoardGame :game="game" :players="BGGusers" :colours="colours"/>
-      </column>
+  <DataView :value="gameInfo" layout="grid" :sortOrder="sortOrder" :sortField="sortField">
+    <template #header>
+      <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Name" @change="onSortChange($event)" />
     </template>
-  </row>
+    <template #grid="slotProps">
+      <div class="grid grid-cols-12 border-0">
+        <template v-for="(item, index) in slotProps.items" :key="index">
+          <div v-if="item.minplayers <= BGGusers.length && item.maxplayers >= BGGusers.length" class="col-span-6 sm:col-span-3 md:col-span-2 xl:col-span-3">
+            <BoardGame :game="item" :players="BGGusers" :colours="colours"/>
+          </div>
+        </template>
+      </div>
+    </template>
+  </DataView>
 </div>
 <div v-else class="text">
   <h1>Welcome to Kallaxion!</h1>

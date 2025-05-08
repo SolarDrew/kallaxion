@@ -25,5 +25,6 @@ app.use(PrimeVue, {theme: {preset: Aura}})
 app.component('Button', Button);
 app.component('DataView', DataView);
 app.component('InputText', InputText);
+app.component('Select', Select);
 
 app.mount('#app')
