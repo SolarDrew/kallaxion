@@ -37,40 +37,40 @@ const props = defineProps({
 </template>
 
 <style scoped>
-  h3 {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-    color: var(--color-heading);
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--color-heading);
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.playersrow {
+  display: flex;
+  justify-content: center;
+}
+
+.hovertext {
+    display: none;
+    position: absolute;
     text-align: center;
-  }
+    z-index: 1;
+    background-color: darkslategrey;
+    color: ghostwhite;
+}
 
-  img {
+.playersrow:hover + .hovertext {
     display: block;
-    margin: auto;
-  }
+}
 
-  .playersrow {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hovertext {
-      display: none;
-      position: absolute;
-      text-align: center;
-      z-index: 1;
-      background-color: darkslategrey;
-      color: ghostwhite;
-  }
-
-  .playersrow:hover + .hovertext {
-      display: block;
-  }
-
-  .meepleicon {
-    display: flex;
-    flex-basis: 30px;
-  }
+.meepleicon {
+  display: flex;
+  flex-basis: 30px;
+}
 </style>
 

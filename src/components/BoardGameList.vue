@@ -1,7 +1,5 @@
 <script setup>
-  import { watch } from 'vue'
   import BoardGame from './BoardGame.vue'
-  import PlayerPic from './PlayerPic.vue'
   const props = defineProps({
     BGGusers: Array,
     gameInfo: Array,
@@ -32,11 +30,6 @@
 </template>
 
 <style scoped>
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-
   .text {
       text-align: center;
   }
