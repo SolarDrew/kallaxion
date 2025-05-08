@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import InputText from 'primevue/inputtext'
 
 const newPlayerName = ref(null)
 const BGGusers = defineModel('users')
@@ -78,7 +79,7 @@ function addPlayer () {
 
 <template>
   <div class="input">
-    <input v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer"/>
+    <InputText v-model="newPlayerName" placeholder="Choose a player!" @keyup.enter="addPlayer" type="text" variant="filled"/>
     <Button @click="addPlayer" label="Add Player"/>
   </div>
 </template>
